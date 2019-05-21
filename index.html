@@ -331,7 +331,7 @@
                 
               
 
-              <time title="Created: 2019-05-21 10:10:18 / Modified: 10:26:40" itemprop="dateCreated datePublished" datetime="2019-05-21T10:10:18+08:00">2019-05-21</time>
+              <time title="Created: 2019-05-21 10:10:18 / Modified: 11:59:28" itemprop="dateCreated datePublished" datetime="2019-05-21T10:10:18+08:00">2019-05-21</time>
             
 
             
@@ -372,18 +372,53 @@
       
         
           
-            <p>##先将项目建成 npm 项目##</p>
+            <h2 id="先将项目建成-npm-项目"><a href="#先将项目建成-npm-项目" class="headerlink" title="先将项目建成 npm 项目"></a>先将项目建成 npm 项目</h2><hr>
 <p>npm init -y<br>npm i webpack -D<br>npm I webpack-cli</p>
 <hr>
-<p>##创建目录结构，文件和内容##</p>
+<h2 id="创建目录结构，文件和内容"><a href="#创建目录结构，文件和内容" class="headerlink" title="创建目录结构，文件和内容"></a>创建目录结构，文件和内容</h2><hr>
 <p>创建 webpack.config.js</p>
 <p>const path = require(‘path’);<br>module.exports = {<br>entry: ‘./src/index.js’,<br>output: {<br>filename: ‘main.js’,<br>path: path.resolve(__dirname, ‘dist’)<br>}<br>};</p>
 <hr>
-<p>##在命令行执行##</p>
-<hr>
+<h2 id="在命令行执行"><a href="#在命令行执行" class="headerlink" title="在命令行执行"></a>在命令行执行</h2><hr>
 <p>npx webpack –config webpack.config.js<br>在 packjson scripts 中可以简写<br>“build”: “npx webpack –config webpack.config.js”</p>
 <hr>
-<h2 id="module"><a href="#module" class="headerlink" title="##module##"></a>##module##</h2><p>模块的导入需要 loader<br>css 模块需要 css-loader style-loader</p>
+<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><hr>
+<p>module<br>非 js 模块的导入需要 loader<br>css 模块需要 css-loader style-loader</p>
+<hr>
+<h2 id="多入口-对应多出口"><a href="#多入口-对应多出口" class="headerlink" title="多入口 对应多出口"></a>多入口 对应多出口</h2><hr>
+<p>const path = require(‘path’);<br>module.exports = {<br>entry: {<br>app: ‘./src/index.js’,<br>print: ‘./src/print.js’<br>},<br>output: {<br>filename: ‘[name].bundle.js’,<br>path: path.resolve(__dirname, ‘dist’)<br>}<br>};</p>
+<hr>
+<h2 id="设置-HtmlWebpackPlugin"><a href="#设置-HtmlWebpackPlugin" class="headerlink" title="设置 HtmlWebpackPlugin"></a>设置 HtmlWebpackPlugin</h2><hr>
+<p>npm install –save-dev html-webpack-plugin</p>
+<p>HtmlWebpackPlugin 还是会默认生成它自己的 index.html 文件。也就是说，它会用新生成的 index.html 文件，替换我们的原有文件。</p>
+<p>HtmlWebpackPlugin<br>有可能频繁的修改入口文件或出口文件，导致 html 文件 引入的文件发生改变 ，要频繁修改</p>
+<p>自动新建 html 自动引入文件， 可以提供一个 html 模板</p>
+<p>new HtmlWebpackPlugin({<br>template:”./public/index.html”<br>})</p>
+<hr>
+<h2 id="清理-dist-文件夹-clean-webpack-plugin"><a href="#清理-dist-文件夹-clean-webpack-plugin" class="headerlink" title="清理 dist 文件夹 clean-webpack-plugin"></a>清理 dist 文件夹 clean-webpack-plugin</h2><hr>
+<p>在每次构建前清理 /dist 文件夹，这样只会生成用到的文件<br>npm install –save-dev clean-webpack-plugin</p>
+<hr>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><hr>
+<p>使用  source map<br>先将 mode 设置为 ‘development’,</p>
+<p>当 webpack 打包源代码时，可能会很难追踪到 error(错误) 和 warning(警告) 在源代码中的原始位置</p>
+<p>为了更容易地追踪 error 和 warning，JavaScript 提供了 source map 功能，可以将编译后的代码映射回原始源代码。如果一个错误来自于 b.js，source map 就会明确的告诉你</p>
+<p>选择开发工具<br>开发环境推荐使用  eval   eval-source-map<br>devtool :”eval-source-map”</p>
+<hr>
+<h2 id="使用-watch-mode-观察模式"><a href="#使用-watch-mode-观察模式" class="headerlink" title="使用 watch mode(观察模式)"></a>使用 watch mode(观察模式)</h2><hr>
+<p>package.json</p>
+<p>你可以指示 webpack “watch” 依赖图中所有文件的更改。如果其中一个文件被更新，代码将被重新编译，所以你不必再去手动运行整个构建。</p>
+<p>我们添加一个用于启动 webpack watch mode 的 npm scripts：</p>
+<p>“watch”: “webpack –watch”,</p>
+<p>在命令行中运行 npm run watch</p>
+<hr>
+<h2 id="使用-webpack-dev-server"><a href="#使用-webpack-dev-server" class="headerlink" title="使用 webpack-dev-server"></a>使用 webpack-dev-server</h2><hr>
+<p>webpack-dev-server 为你提供了一个简单的 web server，并且具有 live reloading(实时重新加载) 功能</p>
+<p>npm install –save-dev webpack-dev-server</p>
+<p>webpack.config.js</p>
+<p>devServer: {<br>    contentBase: ‘./dist’<br>  },</p>
+<p>以上配置告知 webpack-dev-server，将 dist 目录下的文件 serve 到 localhost:8080 下</p>
+<p>添加一个可以直接运行 dev server 的 script：<br>package.json</p>
+<p>“start”: “webpack-dev-server –open”,</p>
 <hr>
 
           
@@ -503,7 +538,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-21 10:24:31" itemprop="dateModified" datetime="2019-05-21T10:24:31+08:00">2019-05-21</time>
+                <time title="Modified: 2019-05-21 11:17:59" itemprop="dateModified" datetime="2019-05-21T11:17:59+08:00">2019-05-21</time>
               
             
           </span>
@@ -540,15 +575,15 @@
         
           
             <hr>
-<h3 id="Element-ui"><a href="#Element-ui" class="headerlink" title="Element-ui"></a>Element-ui</h3><p><strong>1.安装</strong><br>npm i element-ui -S<br><strong>2.按需引入</strong><br>npm install babel-plugin-component -D</p>
+<h2 id="Element-ui"><a href="#Element-ui" class="headerlink" title="Element-ui"></a>Element-ui</h2><p><strong>1.安装</strong><br>npm i element-ui -S<br><strong>2.按需引入</strong><br>npm install babel-plugin-component -D</p>
 <p><strong>3.修改 bable.config.js</strong></p>
 <p>{ “presets”: [[“es2015”, { “modules”: false }]], “plugins”: [ [ “component”, { “libraryName”: “element-ui”, “styleLibraryName”: “theme-chalk” } ] ] }<br><strong>4.新建 element.js</strong><br>专门用来引入 element<br>5.main.js 引入</p>
 <p><a href="https://freeydd.github.io/" target="_blank" rel="noopener">myblog</a></p>
 <hr>
 <hr>
-<h2 id="git"><a href="#git" class="headerlink" title="###git"></a>###git</h2><hr>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><hr>
 <hr>
-<h2 id="1-git-安装及默认设置"><a href="#1-git-安装及默认设置" class="headerlink" title="####1.git 安装及默认设置"></a>####1.git 安装及默认设置</h2><hr>
+<h2 id="1-git-安装及默认设置"><a href="#1-git-安装及默认设置" class="headerlink" title="1.git 安装及默认设置"></a>1.git 安装及默认设置</h2><hr>
 <hr>
 <p><strong><em>安装 git</em></strong><br>在 linux 下直接使用命令：</p>
 <p>sudo apt-get install git<br>windows 下百度 gitbash ，下载安装即可。</p>
@@ -559,7 +594,8 @@
 <hr>
 <hr>
 <hr>
-<h2 id="2-工作流程"><a href="#2-工作流程" class="headerlink" title="####2.工作流程"></a>####2.工作流程</h2><hr>
+<h2 id="2-工作流程"><a href="#2-工作流程" class="headerlink" title="2.工作流程"></a>2.工作流程</h2><hr>
+<hr>
 <p>克隆 Git 仓库作为工作目录（或者自己新建一个工作目录并初始化为 Git 仓库）。<br>增加资源及修改文件。<br>提交修改。<br>如果他人修改了代码，可以更新资源。 3.基本操作命令<br>git init<br>mkdir demo &amp;&amp; cd demo<br>git init<br>通过创建 demo 文件夹，git init 初始化，新建一个仓库。</p>
 <p>git clone<br>如果在 github 上已经有了仓库，可以直接通过 git clone 将项目 clone 到本地。</p>
 <p>git clone [仓库地址]<br>git diff<br>查看做了哪些修改。按 q 退出。</p>
@@ -575,7 +611,8 @@
 <p>git checkout 文件名</p>
 <hr>
 <hr>
-<h2 id="3-推送代码"><a href="#3-推送代码" class="headerlink" title="####3.推送代码"></a>####3.推送代码</h2><hr>
+<h2 id="3-推送代码"><a href="#3-推送代码" class="headerlink" title="3.推送代码"></a>3.推送代码</h2><hr>
+<hr>
 <p>首先，要在 github 上新建仓库，然后 clone 下来。</p>
 <p>git push<br><em>首次推送</em><br>git push -u origin master<br><em>之后可以省略参数</em><br>git push<br>如果没有通过 clone 现有仓库，而是直接在本地 git init 的仓库的话，需要先添加远程仓库地址。</p>
 <p><em>为这个仓库添加一个远程地址</em><br>git remote add origin [你的 github 上的仓库地址]<br>但是这里还有个问题，就是每次 push 都需要输入用户名和密码，很麻烦。这里需要设置下 ssh 。</p>
@@ -586,14 +623,18 @@
 <p>右上角点击头像-&gt; 点击 settings-&gt; 点击 SSH KEYS-&gt; 点击 ADD SSH KEYS-&gt; 将获取的 public key 粘贴于此</p>
 <hr>
 <hr>
-<h2 id="4-分支操作"><a href="#4-分支操作" class="headerlink" title="####4.分支操作"></a>####4.分支操作</h2><hr>
+<h2 id="4-分支操作"><a href="#4-分支操作" class="headerlink" title="4.分支操作"></a>4.分支操作</h2><hr>
+<hr>
 <p>创建新分支</p>
 <p>git branch [yourbranch]<br>切换分支</p>
 <p>git checkout [yourbranch]<br>或者直接创建一个分支，并且切换过去</p>
 <p>git checkout -b [yourbranch]<br>删除分支</p>
 <p>git branch -d [yourbranch]<br>推送分支</p>
-<h2 id="git-push-origin-yourbranch"><a href="#git-push-origin-yourbranch" class="headerlink" title="git push origin [yourbranch]"></a>git push origin [yourbranch]</h2><hr>
-<h2 id="5-分支更新及合并"><a href="#5-分支更新及合并" class="headerlink" title="####5.分支更新及合并"></a>####5.分支更新及合并</h2><hr>
+<p>git push origin [yourbranch]</p>
+<hr>
+<hr>
+<h2 id="5-分支更新及合并"><a href="#5-分支更新及合并" class="headerlink" title="5.分支更新及合并"></a>5.分支更新及合并</h2><hr>
+<hr>
 <p>拉取主分支上的更新</p>
 <p>git pull origin master<br>合并其他分支代码</p>
 <p>git merge [otherbranch]</p>
@@ -984,6 +1025,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
