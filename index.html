@@ -286,6 +286,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr you">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World 身上纹">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/21/webpack/" class="post-title-link" itemprop="url">webpack</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-21 10:10:18 / Modified: 10:23:17" itemprop="dateCreated datePublished" datetime="2019-05-21T10:10:18+08:00">2019-05-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="先将项目建成-npm-项目"><a href="#先将项目建成-npm-项目" class="headerlink" title="##先将项目建成 npm 项目"></a>##先将项目建成 npm 项目</h2><p>npm init -y<br>npm i webpack -D<br>npm I webpack-cli</p>
+<hr>
+<h2 id="创建目录结构，文件和内容"><a href="#创建目录结构，文件和内容" class="headerlink" title="##创建目录结构，文件和内容"></a>##创建目录结构，文件和内容</h2><p>创建 webpack.config.js</p>
+<p>const path = require(‘path’);<br>module.exports = {<br>entry: ‘./src/index.js’,<br>output: {<br>filename: ‘main.js’,<br>path: path.resolve(__dirname, ‘dist’)<br>}<br>};</p>
+<hr>
+<p>##在命令行执行##</p>
+<hr>
+<p>npx webpack –config webpack.config.js<br>在 packjson scripts 中可以简写<br>“build”: “npx webpack –config webpack.config.js”</p>
+<p>module<br>模块的导入需要 loader<br>css 模块需要 css-loader style-loader</p>
+<hr>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/20/开博大吉/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -598,7 +750,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -606,6 +758,23 @@
 
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
             </nav>
           
