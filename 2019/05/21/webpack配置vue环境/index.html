@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="安装vue npm i vue  安装 vue-loader 你应该将 vue-loader 和 vue-template-compiler 一起安装——除非你是使用自行 fork 版本的 Vue 模板编译器的高阶用户： npm i -D vue-loader vue-template-compiler   webpack配置 webpack.config.jsconst VueLoaderPlu">
+  <meta name="description" content="安装 vue npm i vue  安装 vue-loader 你应该将 vue-loader 和 vue-template-compiler 一起安装——除非你是使用自行 fork 版本的 Vue 模板编译器的高阶用户： npm i -D vue-loader vue-template-compiler   webpack 配置 webpack.config.jsconst VueLoaderP">
 <meta name="keywords" content="配置vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack配置vue环境">
 <meta property="og:url" content="http://yoursite.com/2019/05/21/webpack配置vue环境/index.html">
 <meta property="og:site_name" content="Hello World 身上纹">
-<meta property="og:description" content="安装vue npm i vue  安装 vue-loader 你应该将 vue-loader 和 vue-template-compiler 一起安装——除非你是使用自行 fork 版本的 Vue 模板编译器的高阶用户： npm i -D vue-loader vue-template-compiler   webpack配置 webpack.config.jsconst VueLoaderPlu">
+<meta property="og:description" content="安装 vue npm i vue  安装 vue-loader 你应该将 vue-loader 和 vue-template-compiler 一起安装——除非你是使用自行 fork 版本的 Vue 模板编译器的高阶用户： npm i -D vue-loader vue-template-compiler   webpack 配置 webpack.config.jsconst VueLoaderP">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-21T07:22:39.780Z">
+<meta property="og:updated_time" content="2019-05-21T09:18:27.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack配置vue环境">
-<meta name="twitter:description" content="安装vue npm i vue  安装 vue-loader 你应该将 vue-loader 和 vue-template-compiler 一起安装——除非你是使用自行 fork 版本的 Vue 模板编译器的高阶用户： npm i -D vue-loader vue-template-compiler   webpack配置 webpack.config.jsconst VueLoaderPlu">
+<meta name="twitter:description" content="安装 vue npm i vue  安装 vue-loader 你应该将 vue-loader 和 vue-template-compiler 一起安装——除非你是使用自行 fork 版本的 Vue 模板编译器的高阶用户： npm i -D vue-loader vue-template-compiler   webpack 配置 webpack.config.jsconst VueLoaderP">
 
 
 
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Created: 2019-05-21 14:37:56 / Modified: 15:22:39" itemprop="dateCreated datePublished" datetime="2019-05-21T14:37:56+08:00">2019-05-21</time>
+              <time title="Created: 2019-05-21 14:37:56 / Modified: 17:18:27" itemprop="dateCreated datePublished" datetime="2019-05-21T14:37:56+08:00">2019-05-21</time>
             
 
             
@@ -372,7 +372,7 @@
       
 
       
-        <h2 id="安装vue"><a href="#安装vue" class="headerlink" title="安装vue"></a>安装vue</h2><hr>
+        <h2 id="安装-vue"><a href="#安装-vue" class="headerlink" title="安装 vue"></a>安装 vue</h2><hr>
 <p>npm i vue</p>
 <hr>
 <h2 id="安装-vue-loader"><a href="#安装-vue-loader" class="headerlink" title="安装 vue-loader"></a>安装 vue-loader</h2><hr>
@@ -380,17 +380,27 @@
 <p>npm i -D vue-loader vue-template-compiler</p>
 <hr>
 <hr>
-<p>webpack配置</p>
+<p>webpack 配置</p>
 <p>webpack.config.js<br>const VueLoaderPlugin = require(‘vue-loader/lib/plugin’)</p>
-<p>module.exports = {<br>  module: {<br>    rules: [</p>
-<pre><code>  {
-    test: /\.vue$/,
-    loader: &apos;vue-loader&apos;
-  }
-]
-</code></pre><p>  },<br>  plugins: [</p>
-<pre><code>new VueLoaderPlugin()
-</code></pre><p>  ]<br>}</p>
+<p>module.exports = {<br>module: {<br>rules: [</p>
+<p>{<br>test: /.vue\$/,<br>loader: ‘vue-loader’<br>}<br>]<br>},<br>plugins: [</p>
+<p>new VueLoaderPlugin()<br>]<br>}</p>
+<hr>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><hr>
+<p>模块解析的时候可以省略扩展名</p>
+<p>自动解析确定的扩展</p>
+<p>webpack.config.js</p>
+<p>module.exports = {</p>
+<p>resolve: {<br>extensions: [‘.wasm’, ‘.vue’, ‘.js’, ‘.json’]<br>}<br>};</p>
+<p>能够使用户在引入模块时不带扩展</p>
+<hr>
+<h2 id="sass-loader"><a href="#sass-loader" class="headerlink" title="sass-loader"></a>sass-loader</h2><hr>
+<p>加载和转译 SASS/SCSS 文件</p>
+<p>npm install sass-loader node-sass</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line"></span><br><span class="line">.hello&#123;</span><br><span class="line">    h1&#123;</span><br><span class="line">      color:rgb(103, 235, 70)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="devServer"><a href="#devServer" class="headerlink" title="devServer"></a>devServer</h2><hr>
+<figure class="highlight plain"><figcaption><span>&#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html</span><br><span class="line">devServer.historyApiFallback 默认禁用</span><br><span class="line">  historyApiFallback: true</span><br><span class="line">  </span><br><span class="line">当使用内联模式(inline mode)时，会在开发工具(DevTools)的控制台(console)显示消息，例如：在重新加载之前，在一个错误之前，或者 模块热替换(Hot Module Replacement) 启用时。默认值是 info。</span><br><span class="line"></span><br><span class="line">  clientLogLevel: &apos;none&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
       
@@ -570,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装vue"><span class="nav-number">1.</span> <span class="nav-text">安装vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-vue-loader"><span class="nav-number">2.</span> <span class="nav-text">安装 vue-loader</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-vue"><span class="nav-number">1.</span> <span class="nav-text">安装 vue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-vue-loader"><span class="nav-number">2.</span> <span class="nav-text">安装 vue-loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析"><span class="nav-number">3.</span> <span class="nav-text">解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sass-loader"><span class="nav-number">4.</span> <span class="nav-text">sass-loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#devServer"><span class="nav-number">5.</span> <span class="nav-text">devServer</span></a></li></ol></div>
             
 
           </div>
