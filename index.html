@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,7 +70,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '7.1.1',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
@@ -97,6 +97,7 @@
 
 
   <meta name="description" content="努力">
+<meta name="keywords" content="free">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hello World 身上纹">
 <meta property="og:url" content="http://yoursite.com/index.html">
@@ -418,7 +419,7 @@
                 
               
 
-              <time title="创建时间：2019-05-22 10:39:42 / 修改时间：17:25:31" itemprop="dateCreated datePublished" datetime="2019-05-22T10:39:42+08:00">2019-05-22</time>
+              <time title="创建时间：2019-05-22 10:39:42 / 修改时间：20:30:00" itemprop="dateCreated datePublished" datetime="2019-05-22T10:39:42+08:00">2019-05-22</time>
             
 
             
@@ -458,13 +459,16 @@
 
       
         
+          <p>webpack 生产环境简单配置</p>
+          <!--noindex-->
           
-            <a id="more"></a>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;)</span><br><span class="line">const CleanWebpackPlugin = require(&quot;clean-webpack-plugin&quot;)</span><br><span class="line">const VueLoaderPlugin = require(&quot;vue-loader/lib/plugin&quot;)</span><br><span class="line">const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // 模式  生产模式</span><br><span class="line">  mode: &quot;production&quot;,</span><br><span class="line">  devtool: &quot;none&quot;,</span><br><span class="line">  entry: &quot;./src/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &quot;js/[hash:5].bundle.js&quot;,</span><br><span class="line">    path: path.resolve(__dirname, &quot;./dist&quot;)</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        // css 文件的规则</span><br><span class="line">        test: /(\.css|\.scss)$/,</span><br><span class="line">        // use: [&quot;style-loader&quot;, &quot;css-loader&quot;, &quot;sass-loader&quot;]</span><br><span class="line">        use: [</span><br><span class="line">          &quot;style-loader&quot;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: MiniCssExtractPlugin.loader,</span><br><span class="line">            options: &#123;</span><br><span class="line">              // you can specify a publicPath here</span><br><span class="line">              // by default it use publicPath in webpackOptions.output</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &quot;css-loader&quot;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &quot;postcss-loader&quot;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              // autoprefixer 自动添加浏览器厂商前缀</span><br><span class="line">              // 从webpack高版本之后 autoprefixer 就必须带配置才能生效</span><br><span class="line">              // cssnano 压缩css</span><br><span class="line">              plugins: [</span><br><span class="line">                require(&quot;autoprefixer&quot;)(&#123;</span><br><span class="line">                  browsers: [</span><br><span class="line">                    &quot;&gt; 1%&quot;,</span><br><span class="line">                    &quot;last 2 versions&quot;,</span><br><span class="line">                    &quot;not ie &lt;= 8&quot;,</span><br><span class="line">                    &quot;ios &gt;= 8&quot;,</span><br><span class="line">                    &quot;android &gt;= 4.0&quot;</span><br><span class="line">                  ]</span><br><span class="line">                &#125;),</span><br><span class="line">                require(&quot;cssnano&quot;)</span><br><span class="line">              ]</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &quot;sass-loader&quot;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        // vue 文件的规则</span><br><span class="line">        test: /\.vue$/,</span><br><span class="line">        use: [&quot;vue-loader&quot;]</span><br><span class="line">      &#125;,</span><br><span class="line">      // 图片当作模块引入</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.(png|jpg|gif)$/i,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &quot;url-loader&quot;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              // 图片小于 8kb 自动转化为 base64 编码</span><br><span class="line">              //</span><br><span class="line">              limit: 8192,</span><br><span class="line">              name: &quot;images/[hash:8].[name].[ext]&quot;,</span><br><span class="line">              publicPath: &quot;/&quot;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    new CleanWebpackPlugin(),</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: &quot;./public/index.html&quot;</span><br><span class="line">    &#125;),</span><br><span class="line">    new VueLoaderPlugin(),</span><br><span class="line">    new MiniCssExtractPlugin(&#123;</span><br><span class="line">      filename: &quot;css/[hash:5].[name].css&quot;,</span><br><span class="line">      chunkFilename: &quot;[id].css&quot;,</span><br><span class="line">      publicPath: &quot;/css&quot;</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    // 模块解析的时候可以忽略的扩展名</span><br><span class="line">    extensions: [&quot;.js&quot;, &quot;.json&quot;, &quot;.vue&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/22/webpack生产环境/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1542,12 +1546,18 @@
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories">
+                    
+                  
+                    
+                    
+                      
                     
                       
                     
                     <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -1636,7 +1646,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.1</div>
 
 
 
@@ -1725,6 +1735,7 @@
 
 
   <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
 
 
 
