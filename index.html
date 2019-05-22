@@ -286,6 +286,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/webpack开发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr you">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World 身上纹">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/22/webpack开发/" class="post-title-link" itemprop="url">webpack开发</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-22 09:13:59 / Modified: 09:17:12" itemprop="dateCreated datePublished" datetime="2019-05-22T09:13:59+08:00">2019-05-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;)</span><br><span class="line">const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;)</span><br><span class="line">const CleanWebpackPlugin = require(&quot;clean-webpack-plugin&quot;)</span><br><span class="line">const webpack = require(&quot;webpack&quot;)</span><br><span class="line">const VueLoaderPlugin = require(&quot;vue-loader/lib/plugin&quot;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // 模式  开发模式</span><br><span class="line">  mode: &quot;development&quot;,</span><br><span class="line">  // 选择 开发工具  开发环境中推荐使用  eval  eval-source-map</span><br><span class="line">  devtool: &quot;eval-source-map&quot;,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: &quot;./dist&quot;,</span><br><span class="line">    // 启用模块热替换，局部更新</span><br><span class="line">    hot: true,</span><br><span class="line">    // port: 8080,</span><br><span class="line">    // 减少浏览器控制台的一些提示信息</span><br><span class="line">    clientLogLevel: &quot;none&quot;,</span><br><span class="line">    // 将所有的 404 都指向 index.html</span><br><span class="line">    historyApiFallback: true</span><br><span class="line">  &#125;,</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: &quot;./src/main.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &quot;[name].bundle.js&quot;,</span><br><span class="line">    path: path.resolve(__dirname, &quot;dist&quot;)</span><br><span class="line">  &#125;,</span><br><span class="line">  // module 模块</span><br><span class="line">  // 非js模块的导入需要 loader</span><br><span class="line">  // css 模块需要 style-loader  css-loader</span><br><span class="line">  // loader 的执行是有顺序的，由后往前</span><br><span class="line"></span><br><span class="line">  // 所有的 非 js 模块都被打包到了 xxx.bundle.js (css  images  font )</span><br><span class="line">  // 实现 css 分离</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        // css 文件的规则</span><br><span class="line">        test: /(\.css|\.scss)$/,</span><br><span class="line">        use: [&quot;style-loader&quot;, &quot;css-loader&quot;, &quot;sass-loader&quot;]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        // vue 文件的规则</span><br><span class="line">        test: /\.vue$/,</span><br><span class="line">        use: [&quot;vue-loader&quot;]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  // 插件plugin 给webpack添加一些其他功能</span><br><span class="line">  // HtmlWebpackPlugin 有可能你频繁的修改了入口文件或出口文件，导致 html 文件引入的 文件发生了改变，要频繁的修改</span><br><span class="line">  // 自动新建 html 自动引入文件,让你提供一个 html 模板</span><br><span class="line">  // clean-webpack-plugin 清理 dist 文件夹</span><br><span class="line">  // mini-css-extract-plugin</span><br><span class="line">  // 此插件将CSS提取到单独的文件中</span><br><span class="line">  plugins: [</span><br><span class="line">    new CleanWebpackPlugin(),</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: &quot;./public/index.html&quot;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.HotModuleReplacementPlugin(),</span><br><span class="line">    new VueLoaderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    // 模块解析的时候可以忽略的扩展名</span><br><span class="line">    extensions: [&quot;.js&quot;, &quot;.json&quot;, &quot;.vue&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/webpack配置vue环境/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1212,7 +1357,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1239,7 +1384,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
