@@ -124,7 +124,7 @@
 <meta property="og:site_name" content="由是自由的由">
 <meta property="og:description" content="列表渲染 1234使用 wx:for-item 可以指定数组当前元素的变量名，使用 wx:for-index 可以指定数组当前下标的变量名：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-24T09:09:40.635Z">
+<meta property="og:updated_time" content="2019-05-27T06:17:51.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序">
 <meta name="twitter:description" content="列表渲染 1234使用 wx:for-item 可以指定数组当前元素的变量名，使用 wx:for-index 可以指定数组当前下标的变量名：">
@@ -458,7 +458,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-24 17:09:40" itemprop="dateModified" datetime="2019-05-24T17:09:40+08:00">2019-05-24</time>
+                <time title="修改时间：2019-05-27 14:17:51" itemprop="dateModified" datetime="2019-05-27T14:17:51+08:00">2019-05-27</time>
               
             
           </span>
@@ -530,7 +530,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data 修改只能使用setdata</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">请求</span><br><span class="line">onLoad: function(options) &#123;</span><br><span class="line">    方法</span><br><span class="line">    method:&quot;GET&quot;,</span><br><span class="line">    传参</span><br><span class="line">    data:&#123;&#125;,</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: &apos;https://cnodejs.org/api/v1/topics?limit=5&apos;,</span><br><span class="line">      success:res=&gt; &#123;</span><br><span class="line">        this.setData(&#123;</span><br><span class="line">          title:res.data.data</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">跳转</span><br><span class="line">&lt;navigator url=&quot;/pages/post/post?id=&#123;&#123;item.id&#125;&#125;&quot;&gt;&#123;&#123;item.title&#125;&#125;&lt;/navigator&gt;</span><br><span class="line"></span><br><span class="line">页面内  有条件跳转</span><br><span class="line">wx.switchTab  跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</span><br><span class="line">wx.reLaunch   关闭所有页面，打开到应用内的某个页面</span><br><span class="line">wx.navigateTo 保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈最多十层。</span><br><span class="line">wx.navigateBack 关闭当前页面，返回上一页面或多级页面。</span><br><span class="line">wx.redirectTo  关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">options</span><br><span class="line">onLoad: function (options) &#123;</span><br><span class="line">        console.log(options.id);</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: `https://cnodejs.org/api/v1/topic/$&#123;options.id&#125;`,</span><br><span class="line">      success: res =&gt; &#123;</span><br><span class="line">        console.log(res.data.data);</span><br><span class="line">        this.setData(&#123;</span><br><span class="line">          title: res.data.data</span><br><span class="line">          </span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">  需要备案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">请求</span><br><span class="line">onLoad: function(options) &#123;</span><br><span class="line">    方法</span><br><span class="line">    method:&quot;GET&quot;,</span><br><span class="line">    传参</span><br><span class="line">    data:&#123;&#125;,</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: &apos;https://cnodejs.org/api/v1/topics?limit=5&apos;,</span><br><span class="line">      success:res=&gt; &#123;</span><br><span class="line">        this.setData(&#123;</span><br><span class="line">          title:res.data.data</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">跳转</span><br><span class="line">&lt;navigator url=&quot;/pages/post/post?id=&#123;&#123;item.id&#125;&#125;&quot;&gt;&#123;&#123;item.title&#125;&#125;&lt;/navigator&gt;</span><br><span class="line"></span><br><span class="line">页面内  有条件跳转</span><br><span class="line">wx.switchTab  跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</span><br><span class="line">wx.reLaunch   关闭所有页面，打开到应用内的某个页面</span><br><span class="line">wx.navigateTo 保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈最多十层。</span><br><span class="line">wx.navigateBack 关闭当前页面，返回上一页面或多级页面。</span><br><span class="line">wx.redirectTo  关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">options</span><br><span class="line">onLoad: function (options) &#123;</span><br><span class="line">        console.log(options.id);</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: `https://cnodejs.org/api/v1/topic/$&#123;options.id&#125;`,</span><br><span class="line">      success: res =&gt; &#123;</span><br><span class="line">        console.log(res.data.data);</span><br><span class="line">        this.setData(&#123;</span><br><span class="line">          title: res.data.data</span><br><span class="line">          </span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h2><hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">首先 增加 &quot;enablePullDownRefresh&quot;:true 配置</span><br><span class="line">如果在全局加要在window下</span><br><span class="line"></span><br><span class="line">监听用户下拉刷新事件。</span><br><span class="line">onPullDownRefresh: function() &#123;</span><br><span class="line">    </span><br><span class="line">    const &#123; arr &#125; = this.data</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">      arr: arr.map(num =&gt; num * 2)</span><br><span class="line">    &#125;)</span><br><span class="line">    wx.stopPullDownRefresh()</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -586,6 +586,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/04/跨域/" rel="prev" title="vue跨域">
+                vue跨域 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -654,7 +658,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -710,7 +714,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -821,7 +829,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.9k字</span>
+  <span class="post-count">博客全站共4.2k字</span>
 </div>
 
 
