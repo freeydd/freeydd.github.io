@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Promise</title>
+      <link href="/2019/06/11/Promise/"/>
+      <url>/2019/06/11/Promise/</url>
+      
+        <content type="html"><![CDATA[<hr><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var p=new Promise(function(resolve,reject)&#123;</span><br><span class="line">    var s=Math.random()</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">      if(s&gt;0.8)&#123;</span><br><span class="line">        resolve(&apos;success&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">      else(</span><br><span class="line">        reject(&quot;fail&quot;)</span><br><span class="line">      )</span><br><span class="line">    &#125;,1000)</span><br><span class="line">  &#125;)</span><br><span class="line">  console.log(p)</span><br><span class="line">  p.then(function(result)&#123;</span><br><span class="line">    console.log(result);</span><br><span class="line">  &#125;).catch(function (err) &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><hr><a id="more"></a><hr><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">因为Promise是一个构造函数，所以我们使用了new操作符来创建promise。</span><br><span class="line"></span><br><span class="line">构造函数Promise的参数是一个函数（暂时叫它func），这个函数（func）有两个参数resolve和reject，它们分别是两个函数，这两个函数的作用就是将promise的状态从pending（等待）转换为resolved（已解决）或者从pending（等待）转换为rejected（已失败）。</span><br><span class="line"></span><br><span class="line">创建后的promise有一些方法，then和catch。当然我们也可以人为的在Promise函数上添加一些满足我们自己需求的方法，方便每一个promise对象使用。</span><br></pre></td></tr></table></figure><hr><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">es6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  let p=new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      Math.random()&gt;0.6?resolve(&quot;success&quot;):reject(&quot;fail&quot;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,1000)</span><br><span class="line">  console.log(p);</span><br><span class="line"></span><br><span class="line">  p.then((result)=&gt;&#123;</span><br><span class="line">    console.log(result);</span><br><span class="line">  &#125;).catch((err)=&gt;&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Promise </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Dom</title>
       <link href="/2019/06/06/Dom/"/>
       <url>/2019/06/06/Dom/</url>
