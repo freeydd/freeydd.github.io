@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>数组(备忘)</title>
+      <link href="/2019/06/21/javaScript%E6%95%B0%E7%BB%84/"/>
+      <url>/2019/06/21/javaScript%E6%95%B0%E7%BB%84/</url>
+      
+        <content type="html"><![CDATA[<hr><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">toString() - 将数组转换为以逗号分隔的字符串。</span><br><span class="line">join() - 将所有数组元素组合成一个字符串。</span><br><span class="line">concat - 将两个数组组合在一起，或者将更多项添加到数组中，然后返回一个新数组。</span><br><span class="line">push() - 将项目添加到数组的末尾，改变原始数组。</span><br><span class="line">pop() - 删除数组的最后一项并返回</span><br><span class="line">shift() - 删除数组的第一项并返回</span><br><span class="line">unshift() - 将一个项添加到数组的开头，改变原始数组。</span><br><span class="line">splice() - 通过添加，删除和插入元素修改一个数组。</span><br><span class="line">slice() - 复制数组的给定部分，并将复制的部分作为新数组返回。 它不会改变原始数组。</span><br><span class="line">split() - 将一个字符串分成子串并将它们作为数组返回。</span><br><span class="line">indexOf() - 查找数组中的项目并返回其索引，如果没找到则返回-1</span><br><span class="line">lastIndexOf() - 从右到左查找项目并返回找到的最后一个索引。</span><br><span class="line">filter() - 如果数组的项目符合某个条件，则创建一个新数组。</span><br><span class="line">map() - 通过操纵数组中的值来创建一个新数组。</span><br><span class="line">reduce()  - 根据数组中的单个值进行计算。</span><br><span class="line">forEach() - 遍历数组，将函数作用于数组中的所有项</span><br><span class="line">every() - 检查数组中的所有项是否都符合指定的条件，如果符合则返回 true，否则返回 false。</span><br><span class="line">some() - 检查数组中的项（一个或多个）是否符合指定的条件，如果符合则返回 true，否则返回 false。</span><br><span class="line">includes() - 检查数组是否包含某个项目。</span><br></pre></td></tr></table></figure><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> javascript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Promise</title>
       <link href="/2019/06/11/Promise/"/>
       <url>/2019/06/11/Promise/</url>
